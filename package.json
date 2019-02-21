@@ -7,8 +7,11 @@
   "author": "Samuel Ramon <samuel.ramon@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^6.2.0",
+    "elastic-apm-node": "^2.5.1",
     "elasticsearch": "^15.4.1",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "swagger-ui-express": "^4.0.2"
   }
 }
