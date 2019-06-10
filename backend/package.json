@@ -1,0 +1,25 @@
+{
+  "name": "spellbook",
+  "version": "1.0.0",
+  "description": "D&D Spell Book API",
+  "main": "server.js",
+  "repository": "https://github.com/samuelrbo/dungeon-and-dragons_spell-book",
+  "author": "Samuel Ramon <samuel.ramon@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "",
+    "build:": ""
+  },
+  "dependencies": {
+    "@elastic/elasticsearch": "7",
+    "axios": "^0.19.0",
+    "cors": "^2.8.5",
+    "dotenv-safe": "^6.1.0",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "express-swagger-generator": "^1.1.13"
+  }
+}

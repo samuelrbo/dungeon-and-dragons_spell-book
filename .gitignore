@@ -100,3 +100,5 @@ typings/
 .dynamodb/
 
 # End of https://www.gitignore.io/api/git,node
+
+ecosystem.config.js
