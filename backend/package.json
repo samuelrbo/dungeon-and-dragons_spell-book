@@ -7,7 +7,7 @@
   "author": "Samuel Ramon <samuel.ramon@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "",
+    "start": "nodemon server.js || node server.js",
     "build:": ""
   },
   "dependencies": {
