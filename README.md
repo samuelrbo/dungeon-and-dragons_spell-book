@@ -12,6 +12,6 @@ This API will be used for a mobile app, D&D's spell book. The intent of this pro
 
 To install dependencies packages:
 
-```
+```sh
 yarn install
 ```
