@@ -1,39 +1,35 @@
 const cluster = require('cluster');
-const numCPUs = require('os').cpus().length;
-
-const env = process.env.NODE_ENV;
-const port = process.env.PORT;
-const appName = process.env.APP_NAME;
+const CPUs = require('os').cpus().length;
 
 // Using dotenv-safe to validate if all env was setted (using .env.example to checke env by name)
 const path = require('path');
 require('dotenv-safe').config({
   silent: true,
   path: path.join(__dirname, '.env'),
-  example: path.join(__dirname, '.env.example')
+  example: path.join(__dirname, '.env.sample')
 });
 
 const app = require('./src/app');
 
 if (cluster.isMaster) {
   console.log('============================================================');
-  console.log(`${appName}`);
+  console.log(`${process.env.APP_NAME}`);
   console.log('============================================================');
-  console.log(`[${appName}] Running MASTER process`);
+  console.log(`[${process.env.APP_NAME}] Running MASTER process`);
 
   for (let i=0; i<CPUs; i++) {
     cluster.fork();
   }
 
   cluster.on('exit', (worker, code, signal) => {
-    console.log(`[${appName}] Worker ${worker.process.pid} died!\n\tCode: ${code}\n\tSignal: ${signal}`);
-    console.log(`[${appName}] Initializing a new worker`);
+    console.log(`[${process.env.APP_NAME}] Worker ${worker.process.pid} died!\n\tCode: ${code}\n\tSignal: ${signal}`);
+    console.log(`[${process.env.APP_NAME}] Initializing a new worker`);
     cluster.fork();
   });
 
 } else {
-  app.listen(PORT, '0.0.0.0', () => {
-    console.log(`[${appName}] Running on port: ${PORT}`);
-    console.log(`[${appName}] Running ${cluster.isMaster ? 'MASTER' : 'CHILD'}\n`);
+  app.listen(process.env.PORT, '0.0.0.0', () => {
+    console.log(`[${process.env.APP_NAME}] Running on port: ${process.env.PORT}`);
+    console.log(`[${process.env.APP_NAME}] Running ${cluster.isMaster ? 'MASTER' : 'CHILD'}\n`);
   });
 }

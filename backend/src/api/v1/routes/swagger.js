@@ -27,7 +27,7 @@ module.exports = (app) => {
       },
     },
     basedir: __dirname+'/../../',
-
+    files: ['./**/*.js']
   };
 
   expressSwagger(options);
