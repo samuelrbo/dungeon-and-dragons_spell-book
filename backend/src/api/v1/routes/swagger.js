@@ -12,7 +12,7 @@ module.exports = (app) => {
         version: '1.0.0'
       },
       host: `${HOST}:${PORT}`,
-      basePath: '/v1',
+      basePath: '/api/v1',
       produces: [,
         'application/json',
       ],

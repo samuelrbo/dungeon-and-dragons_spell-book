@@ -29,4 +29,8 @@ fs.readdirSync(path.join(__dirname, 'api')).forEach(apiVersion => {
   require(`./api/${apiVersion}/router`)(app, express);
 });
 
+app.get('/', (req, res) => {
+  res.redirect('/api-docs');
+});
+
 module.exports = app;
