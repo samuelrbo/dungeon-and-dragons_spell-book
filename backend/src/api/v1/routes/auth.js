@@ -2,10 +2,16 @@ const axios = require('axios');
 const jwt = require('jsonwebtoken');
 const moment = require('moment');
 
+const ELASTIC_URL = process.env.ELASTIC_URL;
+const { AUTH_TYPES, JWT_SECRET, JWT_EXPIRATION } = require('../config/auth');
+
 module.exports = (router) => {
 
-  const ELASTIC_URL = process.env.ELASTIC_URL;
-  const { AUTH_TYPES, JWT_SECRET, JWT_EXPIRATION } = require('../config/auth');
+  router.get('/logout', (req, res) => {
+    return res.json({ success: true, authentication: false });
+  });
 
-
+  router.post('/login', (req, res) => {
+    // TODO form login
+  });
 };
