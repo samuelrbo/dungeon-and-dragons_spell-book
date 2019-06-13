@@ -11,9 +11,6 @@ module.exports = (app, express) => {
   // Login/Logout endpoints
   require('./routes/auth')(router);
 
-  // Admin endpoints
-  require('./admin/router')(app, express);
-
   // Setup API endpoints
   app.use('/api/v1', router);
 
